@@ -1,0 +1,21 @@
+RewriteEngine on
+
+#RewriteCond %{SERVER_PORT} 80 
+#RewriteRule ^(.*)$ http://www.site_adi.com/$1 [R,L]
+
+#RewriteCond %{HTTP_HOST} ^site_adi.com. [NC]
+#RewriteRule ^(.*)$ http://www.site_adi.com/$1 [L,R=301,NC]
+
+
+#Seo url oluşturma
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}\.php -f
+RewriteRule ^(.*)$ $1.php
+
+#404 hata sayfası yönlendirme kodu
+#ErrorDocument 404 http://www.joyakademi.com
+
+
+RewriteRule ^sayfa-([0-9a-zA-Z-_]+)  menu-detay.php?sef=$1 [L,QSA]
+
+RewriteRule ^kategori-([0-9a-zA-Z-_]+) kategoriler.php?sef=$1 [L,QSA]
